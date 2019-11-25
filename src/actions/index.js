@@ -1,10 +1,10 @@
 // action creators
 
-export const selectSports = sports =>{
-  return{
-    type:'SELECT_SPORT',
+export const demoAction = ()=>{
+  return {
+    type:'DEMO_ACTION',
     payload:{
-      amount:sports
+      amount:"This is a demo action"
     }
   }
 }
