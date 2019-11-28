@@ -8,14 +8,24 @@ class Postlist extends Component{
     super(props)
   }
   componentDidMount(){
-    this.props.fetchPost()
-    console.log({props:this.props.fetchPost()})
+    this.props.fetchPost();
+  }
+  renderPosts(){
+    return this.props.posts.map(post=>{
+      return(
+        <div className="border" key={post.id}>
+          {post.title}
+        </div>
+      )
+    })
   }
   render(){
-    return(
-      <div>POST LIST</div>
-    )
+    return this.renderPosts();
   }
 }
-
-export default connect(null,{fetchPost})(Postlist);
+const mapstate2props=state=>{
+  return{
+    posts:state.myreducers
+  }
+}
+export default connect(mapstate2props,{fetchPost})(Postlist);
